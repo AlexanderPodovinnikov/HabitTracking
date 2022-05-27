@@ -39,8 +39,9 @@ struct DetailsView: View {
         var newActivity = item
         newActivity.lastCompleted = Date()
         newActivity.completionCount += 1
-        let index = activities.items.firstIndex(of: item)! //TODO
-        activities.items[index] = newActivity
+        if let index = activities.items.firstIndex(of: item) {
+            activities.items[index] = newActivity
+        }
     }
 }
 

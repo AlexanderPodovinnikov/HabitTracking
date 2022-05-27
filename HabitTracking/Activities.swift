@@ -12,7 +12,7 @@ struct Activity: Codable, Identifiable, Equatable {
     let name: String
     let description: String
     var lastCompleted: Date
-    var completionCount: Int
+    var completionCount: Int = 0
 }
 
 class Activities: ObservableObject {

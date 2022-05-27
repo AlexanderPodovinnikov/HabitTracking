@@ -12,7 +12,8 @@ struct AddView: View {
     @State private var name = ""
     @State private var description = ""
     @State private var lastCompleted = Date()
-    @ObservedObject var activities: Activities 
+    @ObservedObject var activities: Activities
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationView {
@@ -31,10 +32,8 @@ struct AddView: View {
             .navigationTitle("Add new activity")
             .toolbar {
                 Button("Save") {
-                    activities.items.append(Activity(name: name, description: description, lastCompleted: lastCompleted, completionCount: 0))
-                    name = ""
-                    description = ""
-                    lastCompleted = Date()
+                    activities.items.append(Activity(name: name, description: description, lastCompleted: lastCompleted))
+                    dismiss()
                 }
             }
         }
