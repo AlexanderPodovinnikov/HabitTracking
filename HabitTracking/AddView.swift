@@ -32,7 +32,10 @@ struct AddView: View {
             .navigationTitle("Add new activity")
             .toolbar {
                 Button("Save") {
-                    activities.items.append(Activity(name: name, description: description, lastCompleted: lastCompleted))
+                    let trimmedName = name.trimmingCharacters(in: .whitespaces)
+                    guard !trimmedName.isEmpty else {return}
+                                        
+                    activities.items.append(Activity(name: trimmedName, description: description, lastCompleted: lastCompleted))
                     dismiss()
                 }
             }
