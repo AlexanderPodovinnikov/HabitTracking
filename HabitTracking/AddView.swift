@@ -36,6 +36,7 @@ struct AddView: View {
                     dismiss()
                 }
             }
+            .navigationViewStyle(.stack) //stops xcode warnings
         }
     }
 }

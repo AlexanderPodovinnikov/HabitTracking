@@ -31,7 +31,7 @@ struct DetailsView: View {
             }
             .padding()
             .navigationTitle("\(item.name) details")
-           
+            .navigationViewStyle(.stack) // stops xcode warnings
         }
     }
     

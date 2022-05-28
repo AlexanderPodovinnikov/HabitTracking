@@ -11,7 +11,7 @@ struct ContentView: View {
     @StateObject var activities = Activities()
     @State private var isShowingAddItem = false
     @State private var isShowingSortOptions = false
-    @State private var searchText = "" // maybe not~
+    @State private var searchText = "" // maybe later~
     @State private var sortingOrder: (Activity, Activity) -> Bool = {
         $0.name < $1.name
     }
@@ -55,6 +55,7 @@ struct ContentView: View {
                     }
                 }
             )
+            
             .confirmationDialog("Change sort order", isPresented: $isShowingSortOptions) {
                 Button("Default") {
                     sortingOrder = {
@@ -67,8 +68,8 @@ struct ContentView: View {
                     }
                 }
             }
-            
-            Text("Welcome to the Habit Tracking App") //secondary view on wider screens
+                      
+            Text("Welcome to the Habit Tracking App") //secondary view on wider screens - no bulshit in xcode output
                 .font(.title)
         }
     }
